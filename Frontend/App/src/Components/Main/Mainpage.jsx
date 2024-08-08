@@ -1,0 +1,88 @@
+import React from 'react'
+import './Mainpage.css'
+import { IoSunnyOutline } from "react-icons/io5";
+import { SiGoogleclassroom } from "react-icons/si";
+import { PiStudentBold } from "react-icons/pi";
+import timetabledata from './timetable';
+import {NavLink} from 'react-router-dom'
+import { Button } from 'antd';
+import LineChartUsageExampleWithClickEvent from './BarGarph'
+ function Mainpage() {
+    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+    const rawdata=[{
+        title:'Today',
+        time:new Date().toLocaleTimeString('en-US', options),
+        value:new  Date().toJSON().slice(0, 10),
+        icon:IoSunnyOutline
+    },
+    {
+        title:'Branch',
+        value:'Computer Science',
+        year:'4',
+
+        icon:SiGoogleclassroom
+    },
+    {
+        title:'Total Strength',
+        section:'C',
+        value:68,
+        icon:PiStudentBold
+
+    },]
+    console.log(rawdata)
+  return (
+    <React.Fragment>
+    <div className='grid-parent mt-3'>
+     {
+    rawdata.map(item=>(
+        <div key={item.title} className='grid-child'>
+        <p className='display-6' ><item.icon className='icon'/>{item.time!=undefined && <span className='mt-3 text-center' style={{color: 'rgb(133, 133, 228)'}}>&ensp;{item.time}</span>}</p>   
+        {
+            item.section &&
+            <p className='grid-child-icon'><span  className='title'>Section</span>:{item.section}</p>
+        }
+        <p className='grid-child-icon'><span  className='title'>{item.title}</span>:{item.value}</p>
+        
+        {
+            item.year &&
+            <p className='grid-child-icon'><span  className='title'>Year</span>:{item.year}</p>
+        }
+        {
+           
+            item.title=='Today' &&<TakeAttendance/>
+        }
+        </div>
+     ))   }
+     
+    </div>
+    <Timetable/><br/>
+    <LineChartUsageExampleWithClickEvent/>
+    </React.Fragment>
+  )
+}
+export default Mainpage=React.memo(Mainpage)
+
+const Timetable=React.memo(()=>{
+    const days = ["Sun", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    const currentDay = new Date().getDay();
+    console.log(timetabledata)
+    return (
+        <div className='time-table'>
+        {
+            timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
+                return (
+                    <div key={index} className='time-table-child'>
+                        <p className='grid-child-icon'>{item.subject}:{item.time}</p>
+                        <p className='grid-child-icon'>Faculty:{item.faculty}</p>
+                    </div>
+                )
+            })
+        }
+        </div>
+    )
+})
+const TakeAttendance=()=>{
+    return (
+        <NavLink to='/take-attendance' className='att'>Take Attendance</NavLink>
+    )
+}
