@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import Loginslice from "./Loginslice";
+import Attendance from "./attendance";
 const store=configureStore({
     reducer: {
-        Loginslice:Loginslice
+        Loginslice:Loginslice,
+        AttendanceSlice:Attendance
     }
 })
 

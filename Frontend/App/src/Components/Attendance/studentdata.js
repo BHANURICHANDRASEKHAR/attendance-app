@@ -55,5 +55,17 @@ const data=[
     {"id": "21551A05I4", "name": "TUMPALA SATISH"},
     {"id": "21551A05I5", "name": "ULLAMPARTHI VINAY"},
     {"id": "21551A05I6", "name": "PEMMASANI SIDDARDHA"},
-    {"id": "21551A05I8", "name": "RITIK CHAUDHARY THARU"}
+    {"id": "21551A05I8", "name": "RITIK CHAUDHARY THARU"}, {"id": "22555A0519", "name": "ABHISHEK BATHULA"},
+    {"id": "22555A0520", "name": "KAKI MANISHA"},
+    {"id": "22555A0521", "name": "KAKUMANU PRAVEEN"},
+    {"id": "22555A0522", "name": "KAMISETTI ASWINI LAKSHMI"},
+    {"id": "22555A0523", "name": "MOHAMMAD NAFIYA SULTHANA KHATHUN"},
+    {"id": "22555A0524", "name": "NARGANA RAJ KUMAR"},
+    {"id": "22555A0525", "name": "PAMMI KAVYA SRI"},
+    {"id": "22555A0526", "name": "RAPETI VINAY"},
+    {"id": "22555A0527", "name": "TANGELLA RAMBABU"},
+    {"id": "22555A0528", "name": "VASA GOPI"},
+    {"id": "22555A0529", "name": "VUKANTI SAI SRINIVASU"},
+    {"id": "22555A0530", "name": "AKULA ASHISH KUMAR"}
 ]
+export default data;

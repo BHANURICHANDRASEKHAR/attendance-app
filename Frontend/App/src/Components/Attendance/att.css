@@ -1,0 +1,46 @@
+.main-header{
+    margin: 10px;
+}
+.att-parent{
+    display: grid;
+    gap: 10px; 
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+}
+.att-child{
+  background-color: #c1a2f3;
+  font-weight: bolder;
+  border-radius: 10px;
+  text-align: center;
+  height: 60px;
+  padding: 10px;
+    margin: 10px;
+}
+.content{
+    display: grid;
+    place-content: center;
+    
+}
+.content input{
+    width: 40px;
+    height: 20px;
+    margin: 0;
+    caret-color: orange;
+}
+.submitdiv{
+   display: flex;
+   justify-content: center;
+}
+.submit{
+    height: 40px;
+    width: max-content;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(127, 210, 127);
+}
+@media screen and (max-width:450px) {
+    .att-parent{
+        
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

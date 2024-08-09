@@ -11,7 +11,7 @@ import LineChartUsageExampleWithClickEvent from './BarGarph'
     const options = { hour: '2-digit', minute: '2-digit', hour12: false };
     const rawdata=[{
         title:'Today',
-        time:new Date().toLocaleTimeString('en-US', options),
+        time:getTimer(),
         value:new  Date().toJSON().slice(0, 10),
         icon:IoSunnyOutline
     },
@@ -65,7 +65,6 @@ export default Mainpage=React.memo(Mainpage)
 const Timetable=React.memo(()=>{
     const days = ["Sun", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const currentDay = new Date().getDay();
-    console.log(timetabledata)
     return (
         <div className='time-table'>
         {
@@ -85,4 +84,10 @@ const TakeAttendance=()=>{
     return (
         <NavLink to='/take-attendance' className='att'>Take Attendance</NavLink>
     )
+}
+export function getTimer()
+{
+    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+    const time=new Date().toLocaleTimeString('en-US', options)
+    return time
 }
