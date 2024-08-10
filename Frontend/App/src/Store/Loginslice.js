@@ -5,7 +5,7 @@ const Loginslice=createSlice({
     reducers:{
         setlogin(state,payload)
         {
-            console.log('state calles')
+            
             state.loginstatus=true
            
         },

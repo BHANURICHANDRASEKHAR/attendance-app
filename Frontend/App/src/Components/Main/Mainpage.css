@@ -45,10 +45,12 @@
 .att{
     text-decoration: none;
     height: 30px;
-    width: 300px;
+    max-width: 300px;
     padding: 10px;
+  
     background-color: #5b53f8;
     border-radius: 5px;
+   
     color: white;
 }
 .bargraph{

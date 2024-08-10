@@ -8,24 +8,15 @@ function Example() {
     const show=useSelector((state)=>state.Loginslice.loginstatus)
     console.log(show)
     const dispatch=useDispatch()
-    const handleClose=()=>{
-        dispatch(LoginActions.setlogout())
-    }
+    // const handleClose=()=>{
+    //     dispatch(LoginActions.setlogout())
+    // }
   return (
     <React.Fragment>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} >  
         <Modal.Header closeButton>
-        
         </Modal.Header>
         <Modal.Body><Auth/></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     </React.Fragment>
   );

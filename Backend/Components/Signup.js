@@ -1,21 +1,25 @@
 import express from 'express';
-import Student from '../Database/Student';
+import Student from '../Database/Modals/Students.js';
 const router=express.Router();
+
 router.post('/',async(req,res)=>{
+    
     try{
-        const {username,email,password,year,section}=req.body;
-     
+        const {username,email,password,year,section,branch,strength}=req.body;
+      
         const user=await Student.findOne({email});
         if(user){
-            res.send({status:false,msg:"user alredy existe"});
+            res.send({status:false,msg:"user alredy exist"});
         }else{
         const r= await Student.create({
             
             username,
             email,
             password,
+            branch,
             year,
-            section  
+            section,
+            strength,  
             
         });
         res.status(200).send({status:true,data:r,msg:"Sign_up success"});

@@ -7,8 +7,10 @@ import timetabledata from './timetable';
 import {NavLink} from 'react-router-dom'
 import { Button } from 'antd';
 import LineChartUsageExampleWithClickEvent from './BarGarph'
- function Mainpage() {
-    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+import { useSelector } from 'react-redux';
+ function Mainpage({userdata}) {
+    
+    const {username,branch,email,year,section,strength}=userdata
     const rawdata=[{
         title:'Today',
         time:getTimer(),
@@ -17,19 +19,20 @@ import LineChartUsageExampleWithClickEvent from './BarGarph'
     },
     {
         title:'Branch',
-        value:'Computer Science',
-        year:'4',
+        value:branch,
+        year:year,
 
         icon:SiGoogleclassroom
     },
     {
         title:'Total Strength',
-        section:'C',
-        value:68,
+        section:section,
+        value:strength,
+        name:username,
         icon:PiStudentBold
 
     },]
-    console.log(rawdata)
+   
   return (
     <React.Fragment>
     <div className='grid-parent mt-3'>
@@ -39,7 +42,9 @@ import LineChartUsageExampleWithClickEvent from './BarGarph'
         <p className='display-6' ><item.icon className='icon'/>{item.time!=undefined && <span className='mt-3 text-center' style={{color: 'rgb(133, 133, 228)'}}>&ensp;{item.time}</span>}</p>   
         {
             item.section &&
-            <p className='grid-child-icon'><span  className='title'>Section</span>:{item.section}</p>
+           <React.Fragment> <p className='grid-child-icon'><span  className='title'>Section</span>:{item.section}</p>
+           <p className='grid-child-icon'><span  className='title'>Name</span>:{item.name}</p>
+  </React.Fragment>
         }
         <p className='grid-child-icon'><span  className='title'>{item.title}</span>:{item.value}</p>
         
@@ -49,7 +54,10 @@ import LineChartUsageExampleWithClickEvent from './BarGarph'
         }
         {
            
-            item.title=='Today' &&<TakeAttendance/>
+            item.title=='Today' &&<React.Fragment>
+            <Routers route='/take-attendance' name='Take Attendance'/><br/><br/>
+            <Routers route='/dashboard' name='Dashboard'/>
+            </React.Fragment>
         }
         </div>
      ))   }
@@ -68,26 +76,28 @@ const Timetable=React.memo(()=>{
     return (
         <div className='time-table'>
         {
-            timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
+            currentDay>0?(timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
                 return (
                     <div key={index} className='time-table-child'>
                         <p className='grid-child-icon'>{item.subject}:{item.time}</p>
                         <p className='grid-child-icon'>Faculty:{item.faculty}</p>
                     </div>
                 )
-            })
+            })):
+            <h3 >Today Sunday Holiday</h3>
         }
         </div>
     )
 })
-const TakeAttendance=()=>{
-    return (
-        <NavLink to='/take-attendance' className='att'>Take Attendance</NavLink>
-    )
-}
+
 export function getTimer()
 {
     const options = { hour: '2-digit', minute: '2-digit', hour12: false };
     const time=new Date().toLocaleTimeString('en-US', options)
     return time
 }
+const Routers=React.memo(({route,name})=>{
+    return(
+        <NavLink to={route} className='att'>{name}</NavLink>
+    )
+})

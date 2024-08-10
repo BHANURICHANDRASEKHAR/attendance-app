@@ -3,9 +3,9 @@ async function storedatabase()
 {
 
 }
-export function toastfunction()
+export function toastfunction(msg)
 {
-   toast.success('Success')
+   toast.success(msg)
 }
 export function toastfail(msg)
 {

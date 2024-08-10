@@ -32,4 +32,4 @@ const StudentSchema = new mongoose.Schema({
     default: 0,
   }
 });
-export default mongoose.model("Student", StudentSchema);
+export default mongoose.model("Students", StudentSchema);

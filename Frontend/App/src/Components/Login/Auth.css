@@ -24,6 +24,13 @@
     font-weight: 600;
     color: rgb(34, 34, 34);
   }
+  select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-radius:10px ;
+  }
   @media screen and (max-width:673px) {
     .Auth-form {
         width: 300px;
