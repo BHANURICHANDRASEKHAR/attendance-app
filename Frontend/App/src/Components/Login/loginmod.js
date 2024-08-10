@@ -17,9 +17,14 @@ export default async function login(data, setloading,dispatch) {
             });
 
             if (response.data.status) {
-                Cookie.set('x-token', response.data.token, { secure: true, sameSite: 'strict',expires: 365   }); 
-               
-                toastfunction(`Loggin Successfully `);
+                const date = new Date();
+                date.setDate(date.getDate() + 365); 
+                Cookie.set('x-token', response.data.token, { 
+                    secure: true, 
+                    sameSite: 'strict', 
+                    expires: date 
+                });
+                                toastfunction(`Loggin Successfully `);
                 dispatch(LoginActions.setlogout());
             } else {
                 toastfail('Invalid Credentials');

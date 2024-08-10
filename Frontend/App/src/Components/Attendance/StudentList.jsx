@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
-import {toastfunction,toastfail} from './send'
-
-import './att.css'
-
- function StudentList({ setData,data1,students }) {
+import storedatabase, { toastfail } from './send';
+import './att.css';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { WhatappSliceActions } from '../../Store/ShareWhatapp';
+function StudentList({ setData, data1, students }) {
     const [selectedIds, setSelectedIds] = useState(new Set());
- 
+    const userdata = useSelector((state) => state.user);
+    const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
     const handleButtonClick = (id) => {
-        setSelectedIds(prev => {
+        setSelectedIds((prev) => {
             const newSelectedIds = new Set(prev);
             if (newSelectedIds.has(id)) {
                 newSelectedIds.delete(id);
@@ -18,51 +21,63 @@ import './att.css'
             return newSelectedIds;
         });
     };
+
     const style = {
         background: '#FF574A',
-        color: '#fff', 
+        color: '#fff',
     };
+
     const handleSubmit = () => {
-        
-        if(data1.sheet.length > 0) {
-            setData(prevData => ({
-                ...prevData,
-                absentList: Array.from(selectedIds)
-            }));
-            console.log(data1)
-            toastfunction()
+        if (isShiftSelected()) {
+            storedatabase(data1,userdata,setLoading,Array.from(selectedIds),dispatch)
+            dispatch(WhatappSliceActions.setFlagTrue());
+        } else {
+            toastfail('Please select a shift');
         }
-       else{
-       toastfail('Please select a shift');
-       }
-      
-    };  
-   
+    };
+
+    const isShiftSelected = () => {
+        if (data1.shift.length > 0) {
+            setData((prevData) => ({
+                ...prevData,
+                absentList: Array.from(selectedIds),
+            }));
+            return true;
+        }
+        return false;
+    };
+
     return (
-      <React.Fragment>
-      <div className='att-parent'> 
-      {
-        students.map((value) => {
-              const { id } = value;
-              const isSelected = selectedIds.has(id);
-              return (
-                  <Button
-                      className='att-child'
-                      key={id}
-                      onClick={() => handleButtonClick(id)}
-                      style={isSelected ? style : {}}
-                  >
-                      {id}
-                  </Button>
-              );
-          })
-      }
-  </div>
-  <SubmitButton handler={handleSubmit} />
-      </React.Fragment>
+        <React.Fragment>
+            <div className='att-parent'>
+                {students.map((student) => {
+                    const { id } = student;
+                    const isSelected = selectedIds.has(id);
+                    return (
+                        <Button
+                            className='att-child'
+                            key={id}
+                            onClick={() => handleButtonClick(id)}
+                            style={isSelected ? style : {}}
+                        >
+                            {id}
+                        </Button>
+                    );
+                })}
+            </div>
+            <SubmitButton handler={handleSubmit} loading={loading} />
+        </React.Fragment>
     );
 }
-export default React.memo(StudentList)
-const SubmitButton = React.memo(({ handler }) => {
-    return <div className='submitdiv'><Button className='submit' onClick={handler}>Submit</Button></div>
-})
+
+const SubmitButton = React.memo(({ handler, loading }) => {
+    return (
+        <div className='submitdiv'>
+            <Button className='submit' disabled={loading} onClick={handler}>
+                {loading ? '....Loading' : 'Submit'}
+            </Button>
+        </div>
+    );
+});
+
+export default React.memo(StudentList);

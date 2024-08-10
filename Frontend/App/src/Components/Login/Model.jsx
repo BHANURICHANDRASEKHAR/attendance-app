@@ -6,7 +6,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { LoginActions } from '../../Store/Loginslice';
 function Example() {
     const show=useSelector((state)=>state.Loginslice.loginstatus)
-    console.log(show)
+    
     const dispatch=useDispatch()
     // const handleClose=()=>{
     //     dispatch(LoginActions.setlogout())
@@ -22,4 +22,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default React.memo(Example);

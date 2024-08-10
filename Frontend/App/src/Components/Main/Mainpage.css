@@ -9,7 +9,8 @@
 .grid-child{
      background-color:aliceblue;
       border-radius: 10px;
-    padding: 20px;
+     padding: 20px;
+    
 }
 .title{
     text-align: center;
@@ -47,7 +48,7 @@
     height: 30px;
     max-width: 300px;
     padding: 10px;
-  
+    margin: 10px;
     background-color: #5b53f8;
     border-radius: 5px;
    

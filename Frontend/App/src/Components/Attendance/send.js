@@ -1,7 +1,29 @@
 import toast from "react-hot-toast";
-async function storedatabase()
+import axios from "axios";
+import {AttendanceActions} from '../../Store/attendance'
+export default async function storedatabase(data,userdata,setLoader,List,dispatch)
 {
+    dispatch(AttendanceActions.setAbsent(List))
+    data.section=userdata[0].section;
+    data.branch=userdata[0].branch;
+    data.year=userdata[0].year;
+    data.absentList=List;
 
+  try{
+    const res=await axios.post('http://localhost:5000/post-absecentList', {
+      data
+    });
+    if(res.data.status)
+    {
+        toastfunction("Attendance stored successfully");
+
+    }
+  }
+  catch(error)
+  {
+    console.log(error);
+  }
+  setLoader(false)
 }
 export function toastfunction(msg)
 {

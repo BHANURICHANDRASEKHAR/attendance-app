@@ -4,12 +4,11 @@ import StudentList from './StudentList';
 import { getTimer } from '../Main/Mainpage';
 import { useSelector } from 'react-redux';
 function TakeAttendance({students}) {
-    const state=useSelector((state) => state.AttendanceSlice.absentList)
-   
+    
     const [data, setData] = useState({
-        absentList: state,
-        sheet: '',
-        time: '',
+        absentList: [],
+        shift: '',
+        time: new Date().toLocaleTimeString(),
         date:new  Date().toJSON().slice(0, 10),
     });
   
@@ -24,28 +23,27 @@ function TakeAttendance({students}) {
 export default TakeAttendance;
 
 const Content = React.memo(({ setData }) => {
-    const [sheet, setSheet] = useState('');
+    const [shift, setshift] = useState('');
     const morningRef = useRef(null);
     const afternoonRef = useRef(null);
 
     useEffect(() => {
        
-        if (sheet) {
+        if (shift) {
             setData(prevData => ({
                 ...prevData,
-                time: new Date().toLocaleTimeString(),
-                sheet
+                shift
             }));
             
         }
         
-    }, [sheet, setData]);
+    }, [shift, setData]);
 
     const handleRadioChange = () => {
         if (morningRef.current.checked) {
-            setSheet('morning');
+            setshift('morning');
         } else if (afternoonRef.current.checked) {
-            setSheet('afternoon');
+            setshift('afternoon');
         }
     };
 

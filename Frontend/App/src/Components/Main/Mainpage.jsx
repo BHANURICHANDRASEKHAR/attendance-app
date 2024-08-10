@@ -55,6 +55,7 @@ import { useSelector } from 'react-redux';
         {
            
             item.title=='Today' &&<React.Fragment>
+            <br/>  
             <Routers route='/take-attendance' name='Take Attendance'/><br/><br/>
             <Routers route='/dashboard' name='Dashboard'/>
             </React.Fragment>

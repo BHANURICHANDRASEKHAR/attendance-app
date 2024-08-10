@@ -8,6 +8,8 @@ import login_router from './Components/login.js';
 import AdminRoute from './Components/AddStudents_to_Database/addStudents.js'
 //get students Deatils
 import GetStudents_Route from './Components/GetStudents.js';
+//Post AbsenceList
+import AbsenceList_Route from './Components/PutAbsentees.js'
 const app = express();
 
 app.use(bodyParser.json());
@@ -32,7 +34,8 @@ app.use('/login', login_router);
 app.use(AdminRoute);
 //get Students for taking attendance
 app.use('/getstudents', GetStudents_Route);
-
+//post absence list
+app.use('/post-absecentList',AbsenceList_Route)
 app.listen(5000, () => {
     console.log(`Listening on port 5000`);
 });

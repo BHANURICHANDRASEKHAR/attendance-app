@@ -1,8 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { LoginActions } from '../../Store/Loginslice';
-import Model from '../Login/Model'
-import LoginAndAvatar from './LoginAndAvatar';
+
 import Mainpage from './Mainpage';
 import { useSelector } from 'react-redux';
 import Loader from '../Loading/Loader';

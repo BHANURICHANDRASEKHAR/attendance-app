@@ -5,7 +5,22 @@ const Attendanceslice=createSlice({
     reducers:{
         setAbsent(state,actions)
         {
-        state.absentList=actions.payload;
+            
+         const list=actions.payload.map((value)=>value.slice(8,10))
+         state.absentList=list.sort((a, b) => {
+            
+            const isANumeric = !isNaN(Number(a));
+            const isBNumeric = !isNaN(Number(b));
+        
+            if (isANumeric && !isBNumeric) {
+                return 1; 
+            }
+            if (!isANumeric && isBNumeric) {
+                return -1; 
+            }
+            return a.localeCompare(b);
+        });
+        
         }
     }
 })
