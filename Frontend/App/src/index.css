@@ -7,7 +7,9 @@ body{
   padding: 6px;
   border-radius: 4px;
   font-style: bold;
-  background-color: #3ab061;
+  display:flex;
+  justify-content: end;
+
   color: white;
   border: none;
 }
