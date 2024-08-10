@@ -17,7 +17,7 @@ export default async function login(data, setloading,dispatch) {
             });
 
             if (response.data.status) {
-                Cookie.set('x-token', response.data.token, { secure: true, sameSite: 'strict' }); 
+                Cookie.set('x-token', response.data.token, { secure: true, sameSite: 'strict',expires: 365   }); 
                
                 toastfunction(`Loggin Successfully `);
                 dispatch(LoginActions.setlogout());

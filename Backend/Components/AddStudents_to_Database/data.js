@@ -1,4 +1,4 @@
-const data=[
+export const data=[
     {"id": "21551A05D0", "name": "BATCHALA ROHIT"},
     {"id": "21551A05D1", "name": "GALETI MANIKANTA"},
     {"id": "21551A05D2", "name": "ABHISHEK MUSUNURI"},

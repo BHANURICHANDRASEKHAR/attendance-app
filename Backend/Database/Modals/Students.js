@@ -1,20 +1,5 @@
 import mongoose from "mongoose";
-
 const StudentSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    maxlength: 30, 
-  },
-  email: {
-    type: String,
-    required: [true, "Please provide a unique email"],
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: [true, "Please provide a password"],
-  },
   branch: {
     type: String,
     required: true,
@@ -27,9 +12,11 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  strength:{
-    type: Number,
-    default: 0,
+  StudentList:{
+    type: [Object], 
+    default: [],
+    required: true,
+    unique: false,
   }
 });
-export default mongoose.model("Student", StudentSchema);
+export default mongoose.model("Students", StudentSchema);

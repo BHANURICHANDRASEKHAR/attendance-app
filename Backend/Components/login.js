@@ -1,4 +1,4 @@
-import Student from '../Database/Modals/Students.js';
+import Users from '../Database/Modals/Users.js';
 import express from 'express';
 import env from 'dotenv';
 import jwt from 'jsonwebtoken';
@@ -9,12 +9,12 @@ router.get('/',async(req,res)=>{
     const {email,password}=req.query;
    
     try{
-        const data=await Student.findOne({email:email,password:password});
+        const data=await Users.findOne({email:email,password:password});
         if(!data) return res.status(205).send({msg:'User not found'});
         else{
              const token=tokencreattion(data);
              res.status(201).send({status:true,token:token,data:data,msg:"Login sucessfull"});
-                
+
         }
     }
     catch(e)
@@ -35,7 +35,7 @@ function tokencreattion(user)
             strength:user.strength
            
         }}
-    const token=  jwt.sign(payload,process.env.key);
+    const token=  jwt.sign(payload,process.env.key,{expiresIn:'1y'});
 
     return token;
 }

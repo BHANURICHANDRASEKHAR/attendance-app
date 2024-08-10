@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import data from './studentdata';
 import { Button } from 'antd';
 import {toastfunction,toastfail} from './send'
 
 import './att.css'
-import { useDispatch } from 'react-redux';
- function StudentList({ setData,data1 }) {
+
+ function StudentList({ setData,data1,students }) {
     const [selectedIds, setSelectedIds] = useState(new Set());
- const dispatch=useDispatch()
+ 
     const handleButtonClick = (id) => {
         setSelectedIds(prev => {
             const newSelectedIds = new Set(prev);
@@ -34,7 +33,7 @@ import { useDispatch } from 'react-redux';
             toastfunction()
         }
        else{
-    toastfail('Please select a sheet')
+       toastfail('Please select a shift');
        }
       
     };  
@@ -43,7 +42,7 @@ import { useDispatch } from 'react-redux';
       <React.Fragment>
       <div className='att-parent'> 
       {
-          data.map((value) => {
+        students.map((value) => {
               const { id } = value;
               const isSelected = selectedIds.has(id);
               return (

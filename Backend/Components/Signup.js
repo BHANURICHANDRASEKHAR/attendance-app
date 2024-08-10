@@ -1,5 +1,5 @@
 import express from 'express';
-import Student from '../Database/Modals/Students.js';
+import Users from '../Database/Modals/Users.js';
 const router=express.Router();
 
 router.post('/',async(req,res)=>{
@@ -7,11 +7,11 @@ router.post('/',async(req,res)=>{
     try{
         const {username,email,password,year,section,branch,strength}=req.body;
       
-        const user=await Student.findOne({email});
+        const user=await Users.findOne({email});
         if(user){
             res.send({status:false,msg:"user alredy exist"});
         }else{
-        const r= await Student.create({
+        const r= await Users.create({
             
             username,
             email,

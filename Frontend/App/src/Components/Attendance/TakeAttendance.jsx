@@ -3,7 +3,7 @@ import './att.css';
 import StudentList from './StudentList';
 import { getTimer } from '../Main/Mainpage';
 import { useSelector } from 'react-redux';
-function TakeAttendance() {
+function TakeAttendance({students}) {
     const state=useSelector((state) => state.AttendanceSlice.absentList)
    
     const [data, setData] = useState({
@@ -16,7 +16,7 @@ function TakeAttendance() {
     return (
         <div className='main-header'> 
             <Content setData={setData} />
-            <StudentList setData={setData} data1={data} />
+            <StudentList setData={setData} data1={data} students={students} />
         </div>
     );
 }
