@@ -6,6 +6,8 @@ import sign_up_router from './Components/Signup.js';
 import login_router from './Components/login.js';
 //this is only for admin
 import AdminRoute from './Components/AddStudents_to_Database/addStudents.js'
+//this is only for admin
+import addTimeTable from "./Components/AddStudents_to_Database/addTimeTable.js";
 //get students Deatils
 import GetStudents_Route from './Components/GetStudents.js';
 //Post AbsenceList
@@ -18,6 +20,8 @@ import UpdatePassWord_Route from './Components/UpdatePassword.js'
 import getTop5MostPresentStudents from './Components/GetTopStudents.js';
 //get 1 week absentees 
 import get1WeekPresentees from './Components/get7daysCount.js';
+//timeTable Rouet
+import getTable_Route from './Components/getTimetabledata.js'
 import env from 'dotenv';
 env.config();  //configure environment
 const app = express();
@@ -42,6 +46,8 @@ app.use('/signup', sign_up_router);
 app.use('/login', login_router);
 //admin Route
 app.use(AdminRoute);
+//admin route for Time table
+app.use('/admin/timetable',addTimeTable)
 //get Students for taking attendance
 app.use('/getstudents', GetStudents_Route);
 //post absence list
@@ -52,6 +58,8 @@ app.use('/updatePassword', UpdatePassWord_Route);
 app.get('/top5Students',getTop5MostPresentStudents);
 //bottom 7
     app.get('/1weekabsentees',get1WeekPresentees);
+//get student time table
+app.use('/getStudentTimeTable',getTable_Route);
 app.listen(5000, () => {
     console.log(`Listening on port 5000`);
 });

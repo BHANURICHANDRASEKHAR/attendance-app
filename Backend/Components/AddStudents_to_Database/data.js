@@ -1,72 +1,246 @@
- const data=[
-    {"id": "21551A05D0", "name": "BATCHALA ROHIT"},
-    {"id": "21551A05D1", "name": "GALETI MANIKANTA"},
-    {"id": "21551A05D2", "name": "ABHISHEK MUSUNURI"},
-    {"id": "21551A05D3", "name": "SATYAVADA SACHIT VENKAT NARAYANA"},
-    {"id": "21551A05D5", "name": "BAPATHI PRAVEEN REDDY"},
-    {"id": "21551A05D6", "name": "BHANURI CHANDRASEKHAR"},
-    {"id": "21551A05D7", "name": "BHEEMUNI GNANESWARA RAO"},
-    {"id": "21551A05D8", "name": "JAVVAJI PRIYA"},
-    {"id": "21551A05D9", "name": "BONGI JAHNAVI"},
-    {"id": "21551A05E0", "name": "CHINTALAPUDI PAVAN KUMAR"},
-    {"id": "21551A05E1", "name": "CHITRAPU PRADEEP KUMAR"},
-    {"id": "21551A05E2", "name": "CHOKKARA RAHUL"},
-    {"id": "21551A05E3", "name": "DASARI HARI DURGA PRASAD"},
-    {"id": "21551A05E4", "name": "DONDAPATI SMAILY"},
-    {"id": "21551A05E5", "name": "DONGARI ANANTHA SRINIVAS"},
-    {"id": "21551A05E6", "name": "GANGIREDDY PAVAN KUMAR REDDY"},
-    {"id": "21551A05E7", "name": "JAGARAPU UDAYA SRI"},
-    {"id": "21551A05E8", "name": "KAIPU MAHIDHAR REDDY"},
-    {"id": "21551A05E9", "name": "KORADA RAVI KUMAR"},
-    {"id": "21551A05F0", "name": "KARRA SUBRAMANYAN SIVARAM"},
-    {"id": "21551A05F1", "name": "LOKANADHAM MANIKANTA"},
-    {"id": "21551A05F2", "name": "MAMIDISETTI DEEPTHI MALIKA"},
-    {"id": "21551A05F3", "name": "MATTAPARTHI VARSHINI"},
-    {"id": "21551A05F4", "name": "MEEGADA PRAVEEN KUMAR"},
-    {"id": "21551A05F5", "name": "MINDYALA SANDHYA RANI"},
-    {"id": "21551A05F6", "name": "MUDDADA THARUN KUMAR"},
-    {"id": "21551A05F7", "name": "NAKKA SRINIVAS REDDY"},
-    {"id": "21551A05F8", "name": "NALLAMILLI SATISH KUMAR REDDY"},
-    {"id": "21551A05F9", "name": "PACHAMATLA CHARAN SAI NAGA VARMA"},
-    {"id": "21551A05G0", "name": "PACHIMALA ANUSHA"},
-    {"id": "21551A05G1", "name": "PADIGAPATI SWATHI"},
-    {"id": "21551A05G2", "name": "PALACHARLA SAI KRISHNA CHOWDARY"},
-    {"id": "21551A05G3", "name": "PARRE HARICHANDRA PRASAD"},
-    {"id": "21551A05G4", "name": "KEERTHI MANIKANTA"},
-    {"id": "21551A05G5", "name": "KESAVARAPU CHARAN"},
-    {"id": "21551A05G6", "name": "POTHULA BLESSY"},
-    {"id": "21551A05G7", "name": "REDDI VIVEK"},
-    {"id": "21551A05G8", "name": "SENAPATHI MANOJ"},
-    {"id": "21551A05G9", "name": "SHAIK KHAJA NIHAL"},
-    {"id": "21551A05H0", "name": "SHAIK RASUL"},
-    {"id": "21551A05H1", "name": "SHAIK RESHMA ARIFA"},
-    {"id": "21551A05H2", "name": "SIRIKI SRI RAMATULASI"},
-    {"id": "21551A05H3", "name": "SWARNA PRIYANKA"},
-    {"id": "21551A05H4", "name": "VANAM YUVA SAI TEJA"},
-    {"id": "21551A05H5", "name": "VANKAYALAPATI RAKESH"},
-    {"id": "21551A05H6", "name": "VUDDDAGIRI SRI NVVV SATYA MANOJ GUPTHA"},
-    {"id": "21551A05H7", "name": "YEDURU NAGAMANIKANTA"},
-    {"id": "21551A05H8", "name": "VENKATA SATYA RUPESH BURLAGADDA"},
-    {"id": "21551A05H9", "name": "KAREDLA SIVA RAMA RAJU"},
-    {"id": "21551A05I0", "name": "KOLLUMALLA RAVITEJA"},
-    {"id": "21551A05I1", "name": "KOPPISETTI SANTHOSH RAJ GOPAL"},
-    {"id": "21551A05I2", "name": "KOPPOLU CHARLES ANTONY"},
-    {"id": "21551A05I3", "name": "MARISE BALA NAGENDRA"},
-    {"id": "21551A05I4", "name": "TUMPALA SATISH"},
-    {"id": "21551A05I5", "name": "ULLAMPARTHI VINAY"},
-    {"id": "21551A05I6", "name": "PEMMASANI SIDDARDHA"},
-    {"id": "21551A05I8", "name": "RITIK CHAUDHARY THARU"}, {"id": "22555A0519", "name": "ABHISHEK BATHULA"},
-    {"id": "22555A0520", "name": "KAKI MANISHA"},
-    {"id": "22555A0521", "name": "KAKUMANU PRAVEEN"},
-    {"id": "22555A0522", "name": "KAMISETTI ASWINI LAKSHMI"},
-    {"id": "22555A0523", "name": "MOHAMMAD NAFIYA SULTHANA KHATHUN"},
-    {"id": "22555A0524", "name": "NARGANA RAJ KUMAR"},
-    {"id": "22555A0525", "name": "PAMMI KAVYA SRI"},
-    {"id": "22555A0526", "name": "RAPETI VINAY"},
-    {"id": "22555A0527", "name": "TANGELLA RAMBABU"},
-    {"id": "22555A0528", "name": "VASA GOPI"},
-    {"id": "22555A0529", "name": "VUKANTI SAI SRINIVASU"},
-    {"id": "22555A0530", "name": "AKULA ASHISH KUMAR"}
-]
+ const data={
+  "branch": "CSE",
+  "section": "C",
+  "year": "4",
+  "semester": "I",
+  "room": "304",
+  "dates": "15-07-2024",
+  "timetable": {
+    "MON": [
+      { 
+        "subject": "Software Project Management", 
+        "abbreviation": "SPM", 
+        "faculty": "Mr. K. Sasikanth, Asst Prof" 
+      },
+      { 
+        "subject": "Building Technology", 
+        "abbreviation": "BT", 
+        "faculty": "Mr. A. Sai Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Digital Marketing", 
+        "abbreviation": "DM", 
+        "faculty": "Mrs. T. Vaaralakshmi, Asst Prof" 
+      },
+      { 
+        "subject": "Cloud Computing", 
+        "abbreviation": "CC", 
+        "faculty": "Mr. T. Sridhar Reddy, Asst Prof" 
+      },
+      { 
+        "subject": "Digital Marketing", 
+        "abbreviation": "DM", 
+        "faculty": "Mrs. T. Vaaralakshmi, Asst Prof" 
+      },
+      { 
+        "subject": "Building Technology", 
+        "abbreviation": "BT", 
+        "faculty": "Mr. A. Sai Kumar, Asst Prof" 
+      }
+    ],
+    "TUE": [
+      { 
+        "subject": "Deep Learning Techniques", 
+        "abbreviation": "DLT", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Building Technology", 
+        "abbreviation": "BT", 
+        "faculty": "Mr. A. Sai Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Digital Marketing", 
+        "abbreviation": "DM", 
+        "faculty": "Mrs. T. Vaaralakshmi, Asst Prof" 
+      },
+      { 
+        "subject": "Software Project Management", 
+        "abbreviation": "SPM", 
+        "faculty": "Mr. K. Sasikanth, Asst Prof" 
+      },
+      { 
+        "subject": "Cloud Computing", 
+        "abbreviation": "CC", 
+        "faculty": "Mr. T. Sridhar Reddy, Asst Prof" 
+      },
+      { 
+        "subject": "Deep Learning Techniques / Sports", 
+        "abbreviation": "DLT/Sports", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      }
+    ],
+    "WED": [
+      { 
+        "subject": "Digital Marketing", 
+        "abbreviation": "DM", 
+        "faculty": "Mrs. T. Vaaralakshmi, Asst Prof" 
+      },
+      { 
+        "subject": "Cloud Computing", 
+        "abbreviation": "CC", 
+        "faculty": "Mr. T. Sridhar Reddy, Asst Prof" 
+      },
+      { 
+        "subject": "Building Technology", 
+        "abbreviation": "BT", 
+        "faculty": "Mr. A. Sai Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Understanding Harmony", 
+        "abbreviation": "UHV", 
+        "faculty": "Mrs. P. Kranthi Kumari, Asst Prof" 
+      },
+      { 
+        "subject": "Deep Learning Techniques", 
+        "abbreviation": "DLT", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Software Project Management / Library", 
+        "abbreviation": "SPM/Library", 
+        "faculty": "Mr. K. Sasikanth, Asst Prof" 
+      }
+    ],
+    "THU": [
+      { 
+        "subject": "Software Project Management", 
+        "abbreviation": "SPM", 
+        "faculty": "Mr. K. Sasikanth, Asst Prof" 
+      },
+      { 
+        "subject": "Cloud Computing", 
+        "abbreviation": "CC", 
+        "faculty": "Mr. T. Sridhar Reddy, Asst Prof" 
+      },
+      { 
+        "subject": "Deep Learning Techniques", 
+        "abbreviation": "DLT", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Deep Learning Techniques", 
+        "abbreviation": "DLT", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Understanding Harmony", 
+        "abbreviation": "UHV", 
+        "faculty": "Mrs. P. Kranthi Kumari, Asst Prof" 
+      },
+      { 
+        "subject": "Building Technology", 
+        "abbreviation": "BT", 
+        "faculty": "Mr. A. Sai Kumar, Asst Prof" 
+      }
+    ],
+    "FRI": [
+      { 
+        "subject": "Deep Learning Techniques LAB (ABC-2)", 
+        "abbreviation": "DLP LAB(ABC-2)", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      },
+      { 
+        "subject": "Software Project Management", 
+        "abbreviation": "SPM", 
+        "faculty": "Mr. K. Sasikanth, Asst Prof" 
+      },
+      { 
+        "subject": "Cloud Computing", 
+        "abbreviation": "CC", 
+        "faculty": "Mr. T. Sridhar Reddy, Asst Prof" 
+      },
+      { 
+        "subject": "Deep Learning Techniques", 
+        "abbreviation": "DLT", 
+        "faculty": "Mr. D. Phani Kumar, Asst Prof" 
+      }
+    ],
+    "SAT": [
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      },
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      },
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      },
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      },
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      },
+      { 
+        "subject": "Project/Internship", 
+        "abbreviation": null, 
+        "faculty": null 
+      }
+    ]
+  },
+  "courses": [
+    {
+      "sno": 1,
+      "course_code": "201CS761A",
+      "course_title": "PE-III: Cloud Computing",
+      "faculty": "Mr. T. Sridhar Reddy, Asst Prof"
+    },
+    {
+      "sno": 2,
+      "course_code": "201CS762A",
+      "course_title": "PE-IV: Software Project Management",
+      "faculty": "Mr. K. Sasikanth, Asst Prof"
+    },
+    {
+      "sno": 3,
+      "course_code": "201CS763A",
+      "course_title": "PE-V: Deep Learning Techniques",
+      "faculty": "Mr. D. Phani Kumar, Asst Prof"
+    },
+    {
+      "sno": 4,
+      "course_code": "201CS764A",
+      "course_title": "OE-III: Building Technology",
+      "faculty": "Mr. A. Sai Kumar, Asst Prof"
+    },
+    {
+      "sno": 5,
+      "course_code": "201CS765B",
+      "course_title": "OE-IV: Digital Marketing",
+      "faculty": "Mrs. T. Vaaralakshmi, Asst Prof"
+    },
+    {
+      "sno": 6,
+      "course_code": "201MB796C",
+      "course_title": "UHV 2-Understanding Harmony",
+      "faculty": "Mrs. P. Kranthi Kumari, Asst Prof"
+    },
+    {
+      "sno": 7,
+      "course_code": "201CS707",
+      "course_title": "Deep Learning using Python",
+      "faculty": "Mr. T. Sridhar Reddy, Asst Prof"
+    },
+    {
+      "sno": 8,
+      "course_code": "201CS721",
+      "course_title": "Industrial/Research Internship/Mini Project-2",
+      "faculty": "Mrs. R. Kusuma Kumari, Asst Prof"
+    }
+  ],
+  "class_teacher": "Mr. D. Phani Kumar, Asst Prof",
+  "counselling_students": "21551A05D0-B1E/19-30"
+}
 
 export default data;

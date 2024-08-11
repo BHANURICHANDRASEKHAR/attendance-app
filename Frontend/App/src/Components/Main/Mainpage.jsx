@@ -3,10 +3,10 @@ import './Mainpage.css'
 import { IoSunnyOutline } from "react-icons/io5";
 import { SiGoogleclassroom } from "react-icons/si";
 import { PiStudentBold } from "react-icons/pi";
-import timetabledata from './timetable';
 import {NavLink} from 'react-router-dom'
 import { Button } from 'antd';
 import ChartsIntegration from './ChartsIntegration'
+import TimeTable from './TimeTable.jsx';
 import { useSelector } from 'react-redux';
  function Mainpage({userdata}) {
     
@@ -64,34 +64,14 @@ import { useSelector } from 'react-redux';
      ))   }
      
     </div>
-    <Timetable/><br/>
+    <TimeTable userdata={userdata}/><br/>
     <ChartsIntegration/>
     </React.Fragment>
   )
 }
 export default Mainpage=React.memo(Mainpage)
 
-const Timetable=React.memo(()=>{
-    const days = ["Sun", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-    const currentDay = new Date().getDay();
-    return (
-       currentDay>0?(
-        <div className='time-table'>
-        {
-            (timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
-                return (
-                    <div key={index} className='time-table-child'>
-                        <p className='grid-child-icon'>{item.subject}:{item.time}</p>
-                        <p className='grid-child-icon'>Faculty:{item.faculty}</p>
-                    </div>
-                )
-            }))
-        }
-        </div>
-       ):
-       <div className='holiday w-100'><h3 >No classes commence today</h3></div>
-    )
-})
+
 
 export function getTimer()
 {
