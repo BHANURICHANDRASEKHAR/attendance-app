@@ -33,8 +33,8 @@ const AttendanceReport = React.forwardRef((props, ref) => {
                     <p><strong>No. of Students Absent:</strong> {data.studentsAbsent}</p>
                 </div>
                 <div className="report-section">
-                    <h2>Pin List of Absentees</h2>
-                    <p>{data.absenteeList}</p>
+                    <h2>Pin List of Absentees:</h2>
+                    <p className='m-1'>{data.absenteeList}</p>
                 </div>
             </div>
         </React.Fragment>

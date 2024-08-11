@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Input from './Input';
 import login from './loginmod.js';
 import {useDispatch} from 'react-redux'
-export default function Login({ authMode, changeAuthMode }) {
+export default function Login({ authMode, changeAuthMode,setAuthMode }) {
     const initialState = {
         email: '',
         password: ''
@@ -36,7 +36,7 @@ export default function Login({ authMode, changeAuthMode }) {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <Input
-                        label='Email Address'
+                     lable='Email Address'
                         placeholder='e.g Abc.com'
                         name='email'
                         type='email'
@@ -44,7 +44,7 @@ export default function Login({ authMode, changeAuthMode }) {
                         value={data.email}
                     />
                     <Input
-                        label='Password'
+                       lable='Password'
                         placeholder='Enter Password'
                         name='password'
                         type='password'
@@ -62,7 +62,7 @@ export default function Login({ authMode, changeAuthMode }) {
                         </button>
                     </div>
                     <p className="text-center mt-2">
-                        Forgot <a href="#">password?</a>
+                        Forgot <span className='text-primary' onClick={()=>{setAuthMode('ForgotPassWord')}}>password?</span>
                     </p>
                 </form>
             </div>

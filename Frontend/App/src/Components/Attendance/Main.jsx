@@ -4,7 +4,7 @@ import Loader from '../Loading/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import getStudents from './getStudents.js'
 import { StudentSliceActions } from '../../Store/StudentsData.js'
-export default function Main() {
+ function Main() {
     const userdata=useSelector((data)=>data.user)
     const dispatch=useDispatch()
     const [studentsdata,setStudentsdata]=useState([])
@@ -20,3 +20,4 @@ export default function Main() {
       loading? <Loader /> : (studentsdata.length>0?<TakeAttendance students={studentsdata} />:<Loader/>)
   )
 }
+export default React.memo(Main)

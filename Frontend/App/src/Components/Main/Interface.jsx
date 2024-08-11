@@ -17,15 +17,3 @@ export default function Interface() {
   );
 }
 
-// export const LoginButton = () => {
-//   const dispatch = useDispatch();
-//   console.log(LoginActions);
-
-//   return (
-//     <button
-//       className='button'
-//       onClick={() => dispatch(LoginActions.setlogin())}
-//     >Login
-//     </button>
-//   );
-// };

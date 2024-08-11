@@ -22,24 +22,17 @@ function Example() {
   return (
     <React.Fragment>
      
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title >Absentees List</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='p-4'>
         <Text ref={ref}/>
         <WhatAppBtn handleCopy={handleCopy}/>
     <br/>
      
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+       
       </Modal>
     </React.Fragment>
   );

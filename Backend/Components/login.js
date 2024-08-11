@@ -3,11 +3,11 @@ import express from 'express';
 import env from 'dotenv';
 import jwt from 'jsonwebtoken';
 env.config();
+console.log(process.env.key)
 const router=express.Router();
 //Get cr details
 router.get('/',async(req,res)=>{
     const {email,password}=req.query;
-   
     try{
         const data=await Users.findOne({email:email,password:password});
         if(!data) return res.status(205).send({msg:'User not found'});

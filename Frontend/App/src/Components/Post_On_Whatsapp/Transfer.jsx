@@ -14,6 +14,7 @@ const WhatsAppShareButton = ({ handleCopy }) => {
         icon={<WhatsAppOutlined />} 
         onClick={handleClick}
         style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
+        className='p-2 w-100'
     >
         Post on WhatsApp
     </Button>

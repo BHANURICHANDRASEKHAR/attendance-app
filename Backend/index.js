@@ -10,6 +10,12 @@ import AdminRoute from './Components/AddStudents_to_Database/addStudents.js'
 import GetStudents_Route from './Components/GetStudents.js';
 //Post AbsenceList
 import AbsenceList_Route from './Components/PutAbsentees.js'
+//Mail testing Route
+import MailTesting_Route from './Components/Mail/SendMail.js';
+//Update PassWord
+import UpdatePassWord_Route from './Components/UpdatePassword.js'
+import env from 'dotenv';
+env.config();  //configure environment
 const app = express();
 
 app.use(bodyParser.json());
@@ -36,6 +42,9 @@ app.use(AdminRoute);
 app.use('/getstudents', GetStudents_Route);
 //post absence list
 app.use('/post-absecentList',AbsenceList_Route)
+app.use('/sendmail',MailTesting_Route)
+//Update Password
+app.use('/updatePassword', UpdatePassWord_Route);
 app.listen(5000, () => {
     console.log(`Listening on port 5000`);
 });
