@@ -14,6 +14,10 @@ import AbsenceList_Route from './Components/PutAbsentees.js'
 import MailTesting_Route from './Components/Mail/SendMail.js';
 //Update PassWord
 import UpdatePassWord_Route from './Components/UpdatePassword.js'
+//get top 5 Strudents Names
+import getTop5MostPresentStudents from './Components/GetTopStudents.js';
+//get 1 week absentees 
+import get1WeekPresentees from './Components/get7daysCount.js';
 import env from 'dotenv';
 env.config();  //configure environment
 const app = express();
@@ -45,6 +49,9 @@ app.use('/post-absecentList',AbsenceList_Route)
 app.use('/sendmail',MailTesting_Route)
 //Update Password
 app.use('/updatePassword', UpdatePassWord_Route);
+app.get('/top5Students',getTop5MostPresentStudents);
+//bottom 7
+    app.get('/1weekabsentees',get1WeekPresentees);
 app.listen(5000, () => {
     console.log(`Listening on port 5000`);
 });

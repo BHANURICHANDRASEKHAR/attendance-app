@@ -1,22 +1,18 @@
 
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 import './Graph.css'
+import Antd from './Antd';
+import get_top_Students from './get_top5_students';
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-const App = () => {
-	const data = [
-		{ year: '1991', value: 3 },
-		{ year: '1992', value: 4 },
-		{ year: '1993', value: 3.5 },
-		{ year: '1994', value: 5 },
-		{ year: '1995', value: 49 },
-		{ year: '1996', value: 6 },
-		{ year: '1997', value: 7 },
-		{ year: '1998', value: 9 },
-		{ year: '1999', value: 6 },
-	];
-
+const App = ({userdata}) => {
+	const [topStudents, setTopStudents] = useState([]);
+  const [loading,setloading] = useState(false)
+  useEffect(() => {
+    get_top_Students(userdata, setTopStudents, setloading,'1weekabsentees')
+  }, [])
+	
 	const options = {
 		animationEnabled: true,
 		// title: {
@@ -36,18 +32,21 @@ const App = () => {
 		},
 		data: [{
 			type: "spline",
-			dataPoints: data.map(item => ({
-				label: item.year,
-				y: item.value
+			dataPoints: topStudents.map(item => ({
+				label: item.date,
+				y: Math.round(item.averageAbsentees)
 			}))
 		}]
 	};
 
 	return (
 		<div className="chart-container">
-    <h6>Daily Attendance Comparision</h6>
-
+          {
+			loading?<Antd/>:<React.Fragment>
+			<h6>Daily Attendance Comparision</h6>
 			<CanvasJSChart options={options} />
+			{/*<CanvasJSChart options={options} />*/}</React.Fragment>
+		  }
 		</div>
 	);
 };

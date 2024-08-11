@@ -6,7 +6,7 @@ import { PiStudentBold } from "react-icons/pi";
 import timetabledata from './timetable';
 import {NavLink} from 'react-router-dom'
 import { Button } from 'antd';
-import LineChartUsageExampleWithClickEvent from './BarGarph'
+import ChartsIntegration from './ChartsIntegration'
 import { useSelector } from 'react-redux';
  function Mainpage({userdata}) {
     
@@ -65,7 +65,7 @@ import { useSelector } from 'react-redux';
      
     </div>
     <Timetable/><br/>
-    <LineChartUsageExampleWithClickEvent/>
+    <ChartsIntegration/>
     </React.Fragment>
   )
 }
@@ -75,19 +75,21 @@ const Timetable=React.memo(()=>{
     const days = ["Sun", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const currentDay = new Date().getDay();
     return (
+       currentDay>0?(
         <div className='time-table'>
         {
-            currentDay>0?(timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
+            (timetabledata[0].timetable[days[currentDay]].length>0 &&timetabledata[0].timetable[days[currentDay]].map((item,index)=>{
                 return (
                     <div key={index} className='time-table-child'>
                         <p className='grid-child-icon'>{item.subject}:{item.time}</p>
                         <p className='grid-child-icon'>Faculty:{item.faculty}</p>
                     </div>
                 )
-            })):
-            <h3 >Today Sunday Holiday</h3>
+            }))
         }
         </div>
+       ):
+       <div className='holiday w-100'><h3 >No classes commence today</h3></div>
     )
 })
 

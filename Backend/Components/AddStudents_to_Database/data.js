@@ -1,4 +1,4 @@
-export const data=[
+ const data=[
     {"id": "21551A05D0", "name": "BATCHALA ROHIT"},
     {"id": "21551A05D1", "name": "GALETI MANIKANTA"},
     {"id": "21551A05D2", "name": "ABHISHEK MUSUNURI"},
@@ -68,4 +68,5 @@ export const data=[
     {"id": "22555A0529", "name": "VUKANTI SAI SRINIVASU"},
     {"id": "22555A0530", "name": "AKULA ASHISH KUMAR"}
 ]
+
 export default data;

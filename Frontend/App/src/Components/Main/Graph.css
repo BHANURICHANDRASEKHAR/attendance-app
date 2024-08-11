@@ -10,4 +10,16 @@
     font-size-adjust: initial;
     font-stretch: expanded;
   }
- 
+ .chart-parent{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap:10px;
+ }
+ .bargraph{
+  height: inherit;
+ }
+ @media screen and (max-width:870px) {
+  .chart-parent{
+    grid-template-columns: 1fr;
+  }
+ }

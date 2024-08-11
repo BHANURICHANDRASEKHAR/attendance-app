@@ -78,4 +78,7 @@
     color: white; 
   }
   
-  
+  .holiday{
+   display: grid;
+   justify-content: center;
+  }

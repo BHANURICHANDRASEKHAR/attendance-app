@@ -1,10 +1,11 @@
 import Absentlist from "../Database/Modals/AbsentList.js";
-
+import putPresentees from './presenteeslist.js'
 import express from 'express';
 const router = express.Router();
-export default router.post('/', async (req, res) => {
+router.use(putPresentees)
+export default router.post('/',async (req, res) => {
     const {date,time,shift,section,year,branch,absentList}=req.body.data;
-    console.log(req.body);
+    
    try{
     const r= await Absentlist.create({
          time,

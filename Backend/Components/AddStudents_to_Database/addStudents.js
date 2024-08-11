@@ -1,5 +1,5 @@
 import Students from "../../Database/Modals/Students.js";
-import {data} from './data.js';
+import data from './data.js';
 import express from 'express';
 const router=express.Router();
 export default router.post('/admin/students',async(req,res)=>{

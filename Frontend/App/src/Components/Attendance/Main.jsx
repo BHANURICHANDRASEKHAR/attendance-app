@@ -20,4 +20,4 @@ import { StudentSliceActions } from '../../Store/StudentsData.js'
       loading? <Loader /> : (studentsdata.length>0?<TakeAttendance students={studentsdata} />:<Loader/>)
   )
 }
-export default React.memo(Main)
+export default Main;
