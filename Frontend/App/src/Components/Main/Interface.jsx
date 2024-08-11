@@ -4,8 +4,9 @@ import Mainpage from './Mainpage';
 import { useSelector } from 'react-redux';
 import Loader from '../Loading/Loader';
 import Logout from './Logout'
-export default function Interface() {
+ function Interface() {
   const userdata=useSelector((data)=>data.user)
+  console.log('Interface')
   return (
     userdata.length>0 ?(
       <div className='interface'>
@@ -16,4 +17,4 @@ export default function Interface() {
     ):<Loader/>
   );
 }
-
+export default React.memo(Interface)

@@ -9,15 +9,16 @@ import { StudentSliceActions } from '../../Store/StudentsData.js'
     const dispatch=useDispatch()
     const [studentsdata,setStudentsdata]=useState([])
     const [loading,setLoading]=useState(false)
+    const [notadded,setnotadded]=useState(false)
     useEffect(()=>{
       if(userdata.length>0) 
       {
-        getStudents(userdata,setLoading,setStudentsdata)
+        getStudents(userdata,setLoading,setStudentsdata,setnotadded)
         dispatch(StudentSliceActions.setStudents(studentsdata))
       }
     },[userdata])
   return (
-      loading? <Loader /> : (studentsdata.length>0?<TakeAttendance students={studentsdata} />:<Loader/>)
+      loading? <Loader /> : (notadded?<h4 className='text-center'>Your Class details Are not Added Yet </h4>:studentsdata.length>0?<TakeAttendance students={studentsdata} />:<Loader/>)
   )
 }
 export default Main;

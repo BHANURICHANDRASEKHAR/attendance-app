@@ -11,7 +11,6 @@ function App() {
   const [token, setToken] = useState('');
   const state = useSelector((state) => state.Loginslice.loginstatus);
   const dispatch = useDispatch(); 
-
   useEffect(() => {
     const token = getCookie(); 
     setToken(token); 

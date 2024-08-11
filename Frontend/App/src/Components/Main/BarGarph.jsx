@@ -9,6 +9,7 @@ const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 const App = ({userdata}) => {
 	const [topStudents, setTopStudents] = useState([]);
   const [loading,setloading] = useState(false)
+  
   useEffect(() => {
     get_top_Students(userdata, setTopStudents, setloading,'1weekabsentees')
   }, [])

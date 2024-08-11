@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { toastfail } from './send'
-export default async function getStudents(user,setLoading,setStudents)
+export default async function getStudents(user,setLoading,setStudents,setnotadded)
 {
     const {section,branch,year}=user[0]
     setLoading(true)
@@ -15,6 +15,9 @@ export default async function getStudents(user,setLoading,setStudents)
         if(res.data.status){
             
             setStudents(res.data.data.StudentList)
+        }
+        else{
+            setnotadded(true)
         }
      }
      catch(e)

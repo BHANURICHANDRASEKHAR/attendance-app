@@ -9,6 +9,7 @@ const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const App = ({userdata}) => {
   const [topStudents, setTopStudents] = useState([]);
+ 
   const [loading,setloading] = useState(false)
   useEffect(() => {
     get_top_Students(userdata, setTopStudents, setloading,'top5Students')
@@ -40,4 +41,4 @@ const App = ({userdata}) => {
   );
 };
 
-export default App;
+export default React.memo(App);
