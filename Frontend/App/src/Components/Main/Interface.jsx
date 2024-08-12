@@ -6,7 +6,7 @@ import Loader from '../Loading/Loader';
 import Logout from './Logout'
  function Interface() {
   const userdata=useSelector((data)=>data.user)
-  console.log('Interface')
+ 
   return (
     userdata.length>0 ?(
       <div className='interface'>

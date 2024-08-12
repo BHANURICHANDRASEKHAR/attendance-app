@@ -19,7 +19,7 @@ const Timetable = React.memo(({ userdata }) => {
     if (loading) {
         return <Antd />;
     }
-   console.log(currentDay)
+   
    return (
     currentDay > 0 ? (
         <div className='time-table'>
