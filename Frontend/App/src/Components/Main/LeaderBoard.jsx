@@ -1,42 +1,70 @@
-import React,{useEffect,useState} from 'react';
-import CanvasJSReact from '@canvasjs/react-charts';
+import React, { useEffect, useState } from 'react';
+import Chart from 'react-apexcharts';
 import get_top_Students from './get_top5_students.js';
-
 import Antd from './Antd.jsx';
 
-const CanvasJS = CanvasJSReact.CanvasJS;
-const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-const App = ({userdata}) => {
+const App = ({ userdata }) => {
   const [topStudents, setTopStudents] = useState([]);
- 
-  const [loading,setloading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    get_top_Students(userdata, setTopStudents, setloading,'top5Students')
-  }, [])
-  const dataPoints = topStudents.map(student => ({
-    label: student.name,
-    y: student.totalAttendance
-  }));
-  const options = {
-    animationEnabled: true,
-    title: {
-      text: "Regular Students"
-    },
-    data: [
+    get_top_Students(userdata, setTopStudents, setLoading, 'top5Students');
+  }, [userdata]);
+
+  const data = {
+    series: [
       {
-        type: "column", 
-        dataPoints: dataPoints
-      }
-    ]
+        name: 'Total Attendance',
+        data: topStudents.map(student => student.totalAttendance),
+      },
+    ],
+    options: {
+      chart: {
+        id: 'bar-chart',
+        type: 'bar',
+        animations: {
+          enabled: true,
+          easing: 'easeinout',
+          speed: 800,
+        },
+      },
+      xaxis: {
+        categories: topStudents.map(student => student.name),
+        title: {
+          text: 'Students',
+        },
+      },
+      yaxis: {
+        title: {
+          text: 'Total Attendance',
+        },
+        min: 0,
+      },
+      title: {
+        text: 'Regular Students',
+        align: 'center',
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          endingShape: 'rounded',
+        },
+      },
+      dataLabels: {
+        enabled: true,
+      },
+      stroke: {
+        show: true,
+        colors: ['transparent'],
+        width: 2,
+        curve: 'smooth',
+      },
+    },
   };
 
   return (
     <div className='bargraph'>
-    {
-      loading?<Antd/>: <CanvasJSChart options={options} />
-    }
-      {/* You can get reference to the chart instance if needed */}
+      {loading ? <Antd /> : <Chart options={data.options} series={data.series} type="bar"    height="400"/>}
     </div>
   );
 };

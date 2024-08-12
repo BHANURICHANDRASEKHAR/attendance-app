@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Mainpage from './Mainpage';
 import { useSelector } from 'react-redux';
 import Loader from '../Loading/Loader';
 import Logout from './Logout'
+import MainMainPage from './MainMainPage';
  function Interface() {
   const userdata=useSelector((data)=>data.user)
  
@@ -12,7 +12,7 @@ import Logout from './Logout'
       <div className='interface'>
       {/* <LoginAndAvatar/><br/> */}
       <Logout/> 
-      <Mainpage  userdata={userdata[0]}/>
+      <MainMainPage  userdata={userdata[0]}/>
     </div>
     ):<Loader/>
   );
