@@ -60,6 +60,7 @@ app.get('/top5Students',getTop5MostPresentStudents);
     app.get('/1weekabsentees',get1WeekPresentees);
 //get student time table
 app.use('/getStudentTimeTable',getTable_Route);
-app.listen(5000, () => {
+var port=process.env.port || 5000
+app.listen(port, () => {
     console.log(`Listening on port 5000`);
 });

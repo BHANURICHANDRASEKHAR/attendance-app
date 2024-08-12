@@ -9,7 +9,7 @@ export default async function login(data, setloading,dispatch) {
     if (flag) {
         setloading(true);
         try {
-            const response = await axios.get('http://localhost:5000/login', {
+            const response = await axios.get('https://attendance-app-0kvp.onrender.com/login', {
                params:{
                 email: data.email,
                 password: data.password

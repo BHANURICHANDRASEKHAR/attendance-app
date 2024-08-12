@@ -3,7 +3,7 @@ import { toastfail, toastfunction } from "../Attendance/send";
 export default async function  mailfunction(setLoading,setotpflag,setOtp,data)
 {
     setLoading(true);
-  const res=await axios.post('http://localhost:5000/sendmail',{
+  const res=await axios.post('https://attendance-app-0kvp.onrender.com/sendmail',{
         email: data.email,
     })
     if(res.data.status)

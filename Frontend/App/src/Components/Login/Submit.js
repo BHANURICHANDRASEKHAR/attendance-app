@@ -8,7 +8,7 @@ async function signup(data,setloading,changeAuthMode)
    if(flag)
    {
     try{
-      const res = await axios.post('http://localhost:5000/signup', data);
+      const res = await axios.post('https://attendance-app-0kvp.onrender.com/signup', data);
       if(res.data.status){
         toastfunction('Registration Successful');
         changeAuthMode('signin')

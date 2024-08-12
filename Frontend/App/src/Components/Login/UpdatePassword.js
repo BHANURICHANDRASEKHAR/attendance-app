@@ -7,7 +7,7 @@ export default async function UpdatePassword(setloading,data,resenddata,setAuthM
  {
     console.log(resenddata)
    try{
-    const res=await axios.post('http://localhost:5000/updatePassword',{
+    const res=await axios.post('https://attendance-app-0kvp.onrender.com/updatePassword',{
         email:data.email,
         password:resenddata.password
         })

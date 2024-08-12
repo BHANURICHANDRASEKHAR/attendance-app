@@ -10,7 +10,7 @@ export default async function storedatabase(data,userdata,setLoader,List,dispatc
     data.absentList=List;
 
   try{
-    const res=await axios.post('http://localhost:5000/post-absecentList', {
+    const res=await axios.post('https://attendance-app-0kvp.onrender.com/post-absecentList', {
       data
     });
     if(res.data.status)

@@ -5,7 +5,7 @@ export default async function getStudents(user,setLoading,setStudents,setnotadde
     const {section,branch,year}=user[0]
     setLoading(true)
      try{
-        const res=await axios.get('http://localhost:5000/getstudents',{
+        const res=await axios.get('https://attendance-app-0kvp.onrender.com/getstudents',{
             params: {
                 section:section,
                    branch:branch,
