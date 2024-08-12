@@ -54,7 +54,7 @@ const getAverageAbsenteesPerDay = async (req, res) => {
 
     const averageAbsentees = await AbsentList.aggregate([
       // Match records based on the provided query parameters and date range
-      { $match: { section, branch, year} },
+      { $match: { section, branch, year, date: { $gte: fourteenDaysAgoDate } } },
       {
         $group: {
           _id: "$date",  // Group by date
