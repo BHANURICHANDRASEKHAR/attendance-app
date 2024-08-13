@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import get_top_Students from './get_top5_students.js';
 import Antd from './Antd.jsx';
+import { useDispatch, useSelector } from 'react-redux';
 
 const App = ({ userdata }) => {
-  const [topStudents, setTopStudents] = useState([]);
-  const [loading, setLoading] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const topStudents=useSelector((state)=>state.leaderboard.LeaderBoard)
+  const dispatch=useDispatch();
   useEffect(() => {
-    get_top_Students(userdata, setTopStudents, setLoading, 'top5Students');
-  }, [userdata]);
+   if(topStudents.length==0)
+   {
+    get_top_Students(userdata, dispatch, setLoading, 'top5Students');
+   }
+  }, []);
 
   const data = {
     series: [

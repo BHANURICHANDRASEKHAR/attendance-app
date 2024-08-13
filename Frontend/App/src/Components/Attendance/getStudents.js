@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { toastfail } from './send'
-export default async function getStudents(user,setLoading,setStudents,setnotadded)
+import { StudentSliceActions } from '../../Store/StudentsData'
+export default async function getStudents(user,setLoading,dispatch,setnotadded)
 {
     const {section,branch,year}=user[0]
     setLoading(true)
@@ -13,8 +14,8 @@ export default async function getStudents(user,setLoading,setStudents,setnotadde
             }
         })
         if(res.data.status){
-            
-            setStudents(res.data.data.StudentList)
+         
+            dispatch(StudentSliceActions.setStudents(res.data.data))
         }
         else{
             setnotadded(true)

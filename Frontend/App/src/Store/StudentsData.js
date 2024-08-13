@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-
 const StudentSlice = createSlice({
     name: 'StudentSlice', 
     initialState: { students: [] },

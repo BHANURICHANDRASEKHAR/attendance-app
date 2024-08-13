@@ -1,7 +1,9 @@
 import axios from "axios";
 import { toastfail } from "../Attendance/send";
-export default async function getTimeTable(user,setloader,settimetable)
+import { TimeTableSliceActions } from "../../Store/timtable";
+export default async function getTimeTable(user,setloader,dispatch)
 {
+ 
   const {branch,year,section}=user
   setloader(true)
   try{
@@ -11,7 +13,8 @@ export default async function getTimeTable(user,setloader,settimetable)
         }
     })
     if(res.data.status){
-      settimetable(res.data.data)
+     
+      dispatch(TimeTableSliceActions.setTimetable(res.data.data))  
      setloader(false)
     }
     else{

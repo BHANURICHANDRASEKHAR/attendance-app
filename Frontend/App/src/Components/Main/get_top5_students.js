@@ -1,8 +1,11 @@
 import axios from "axios";
 import { toastfail } from "../Attendance/send";
-export default async function get_top_Students(userdata,setdata,setloading,link)
+import { LeaderBoardSliceActions } from "../../Store/LeaderBoard";
+import {BarGarphSliceActions} from '../../Store/bargraph'
+export default async function get_top_Students(userdata,dispatch,setloading,link)
 
 {
+ 
     const { branch,year,section}=userdata
    setloading(true)
   try{
@@ -13,7 +16,16 @@ export default async function get_top_Students(userdata,setdata,setloading,link)
       })
       if(res.data.status)
       {
-        setdata(res.data.data)
+        
+        if(link=='1weekabsentees')
+        {
+          dispatch(BarGarphSliceActions.setBarGraph(res.data.data))
+
+        }
+        else{
+          dispatch(LeaderBoardSliceActions.setLeaderBoard(res.data.data))
+
+        }
         
       }
   }

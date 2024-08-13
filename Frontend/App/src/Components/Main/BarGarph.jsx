@@ -2,14 +2,21 @@ import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import get_top_Students from './get_top5_students'; // Assuming this function is correctly defined
 import Antd from './Antd'; // Assuming this component is correctly defined
+import { useDispatch, useSelector } from 'react-redux';
 
 const App = ({ userdata }) => {
-  const [topStudents, setTopStudents] = useState([]);
+ 
   const [loading, setLoading] = useState(false);
-
+  const topStudents=useSelector((state)=>state.bargraph.BarGarph)
+  const dispatch=useDispatch();
+  
   useEffect(() => {
-    get_top_Students(userdata, setTopStudents, setLoading, '1weekabsentees');
-  }, [userdata]);
+    if(topStudents.length==0)
+    {
+      get_top_Students(userdata, dispatch, setLoading, '1weekabsentees');
+
+    }
+  }, []);
 
   const data = {
     series: [
