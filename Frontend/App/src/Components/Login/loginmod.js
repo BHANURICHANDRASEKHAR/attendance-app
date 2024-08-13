@@ -24,7 +24,7 @@ export default async function login(data, setloading,dispatch) {
                     sameSite: 'strict', 
                     expires: date 
                 });
-                                toastfunction(`Loggin Successfully `);
+                toastfunction(`Loggin Successfully `);
                 dispatch(LoginActions.setlogout());
             } else {
                 toastfail('Invalid Credentials');

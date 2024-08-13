@@ -8,6 +8,8 @@ import login_router from './Components/login.js';
 import AdminRoute from './Components/AddStudents_to_Database/addStudents.js'
 //this is only for admin
 import addTimeTable from "./Components/AddStudents_to_Database/addTimeTable.js";
+//aDmin Route
+import Admin_Route from './Components/AddStudents_to_Database/addPresntees.js'
 //get students Deatils
 import GetStudents_Route from './Components/GetStudents.js';
 //Post AbsenceList
@@ -46,6 +48,8 @@ app.use('/signup', sign_up_router);
 app.use('/login', login_router);
 //admin Route
 app.use(AdminRoute);
+app.use(Admin_Route);
+
 //admin route for Time table
 app.use('/admin/timetable',addTimeTable)
 //get Students for taking attendance

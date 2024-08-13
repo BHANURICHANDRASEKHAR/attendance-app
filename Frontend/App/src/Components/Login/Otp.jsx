@@ -4,7 +4,8 @@ import Input from './Input'
 import { toastfail } from '../Attendance/send';
 import UpdatePassword from './UpdatePassword.js'
 import Timer from './Timer';
-export default function Otp({otp,data,setOtp,onHandler,setAuthMode}) {
+import { FaArrowLeft } from "react-icons/fa";
+export default function Otp({otp,data,setOtp,onHandler,setotpflag,setAuthMode}) {
     const [status,setstatus]=useState(false)
     const [loading,setloading]=useState(false)
     const [forgetdata,setforgetdata]=useState({
@@ -29,8 +30,10 @@ export default function Otp({otp,data,setOtp,onHandler,setAuthMode}) {
         return (
             <div className='container'>
             <div className='row'>
+           
             <div className='col mt-4 text-dark'>
-                <h3>Enter Otp</h3>
+            <FaArrowLeft className='flex' onClick={()=>{setotpflag(false)}}/>
+                <h3 className='text-center'>Enter Otp</h3>
                 <p>Verification code has been sent to your email, {data.email}, please enter the same here to complete the signup. Valid for 10 minutes.</p>
                 <Input value={data.otp}  lable='Confirm Otp' type='text' name='otp' handler={onHandler}/> 
                 <Button variant="danger" className='w-100 text-white mt-3'  onClick={verify}>Procced</Button>

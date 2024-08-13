@@ -14,7 +14,7 @@ function Example() {
   return (
     <React.Fragment>
       <Modal show={show} >  
-        <Modal.Header closeButton>
+        <Modal.Header >
         </Modal.Header>
         <Modal.Body><Auth/></Modal.Body>
       </Modal>

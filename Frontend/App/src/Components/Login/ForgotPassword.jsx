@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Input from './Input';
 import mailfunction from './Mailfunction.js';
 import Otp from './Otp.jsx';
+import { FaArrowLeft } from "react-icons/fa";
  function ForgetPassword({authMode, setAuthMode}) {
     const initialState = {
         email: '',
@@ -22,12 +23,13 @@ import Otp from './Otp.jsx';
     }
    if(otpflag)
    {
-    return(<Otp otp={otp} setOtp={setOtp} data={data} onHandler={onHandler} setAuthMode={setAuthMode}/>)
+    return(<Otp otp={otp} setOtp={setOtp} data={data} setotpflag={setotpflag} onHandler={onHandler} setAuthMode={setAuthMode}/>)
    }
    else{
     return (
         <div className="Auth-form-container">
             <div className="Auth-form-content">
+              <FaArrowLeft onClick={()=>setAuthMode('signin')}/>
                 <h3 className="Auth-form-title">
                     Forget Password
                 </h3>
